@@ -3,21 +3,24 @@ function QuartCircle( opt ) {
 
     this.x = opt.x
     this.y = opt.y
-    this.rotate = opt.rotate;
-
+    this.pos = opt.posInit
+    this.radius = opt.radius
+    this.rotate = opt.rotate
 
 }
 
 QuartCircle.prototype = {
     update: function () {
         push()
-        stroke(0,0,0)
+        stroke(255,255,255, 50)
+        strokeWeight(10)
+        strokeCap(SQUARE)
         noFill()
         translate(this.x, this.y);
 
-        this.rotate += 0.02
-        rotate(this.rotate)
-        circle = arc(0, 0, 320, 320, 0, .3 * PI );
+        this.pos += this.rotate
+        rotate(this.pos)
+        circle = arc(0, 0, this.radius, this.radius, 0, .3 * PI );
         pop()
     }
 
