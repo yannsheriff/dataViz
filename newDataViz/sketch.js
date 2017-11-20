@@ -22,7 +22,7 @@ function setup() {
 	opt.posInit = 280
 
 	quartCircles.push(new QuartCircle(opt))
-
+	hourBar = new HourBar()
 	
 }
 
@@ -37,18 +37,26 @@ function draw() {
 	translate(windowWidth/2, windowHeight/2);
 	rotation += 0.005
 	rotate(rotation)
-	// circle = arc(0, 0, 300, 300, 0, 2 * PI );
+
 	image(img, -150, -150, 300, 300);
 
-	// img = createImage(300, 300);
 
 	pop()
 
+
+
 	quartCircles.forEach(function (quartCircle, i) {
 		quartCircle.update()
-		quartCircle.mousePressed(function (){
-			console.log('tst')
-		})
 	})
 
+	hourBar.update()
+	
 }
+
+function mousePressed() {
+	// Check if mouse is inside the circle
+	var d = dist(mouseX, mouseY, windowWidth/2, windowHeight/2);
+	if (d > 130 && d < 170) {
+		console.log('fuck you')
+	}
+  }
