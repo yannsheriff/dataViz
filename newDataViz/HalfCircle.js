@@ -4,15 +4,16 @@ function HalfCircle() {
     this.x = windowWidth/2
     this.y = windowHeight/2
     this.pos = 1.5 
-    this.radius = 255
+    this.radius = 390
     this.hour = 1
+    this.opacity = 50;
 
 }
 
 HalfCircle.prototype = {
     update: function () {
         push()
-        stroke(255,255,255, 50)
+        stroke(255,255,255, this.opacity)
         strokeWeight(10)
         strokeCap(SQUARE)
         noFill()
@@ -23,14 +24,19 @@ HalfCircle.prototype = {
 
         pop()
     }, 
-    nextHalf: function() {
-        TweenLite.to(this, 1, {pos: this.pos + 1});
+    next: function() {
+        TweenLite.to(this, 1, {ease: Power1.easeInOut, pos: this.pos + 1});
     }, 
 
-    prevHalf: function() {
-        TweenLite.to(this, 1, {pos: this.pos + 1});
+    prev: function() {
+        TweenLite.to(this, 1, {ease: Power1.easeInOut, pos: this.pos + 1});
+    }, 
+    select: function() {
+        TweenLite.to(this, 1.5, {ease: Power1.easeOut, pos: this.pos + 2});
+        TweenLite.to(this, 1, { opacity: 255});
+    },
+    unselect: function() {
+        TweenLite.to(this, 1, {ease: Power1.easeInOut, opacity: 100});
     }
-
-
 }
 

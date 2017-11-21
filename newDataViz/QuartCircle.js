@@ -12,8 +12,8 @@ function QuartCircle( opt ) {
 QuartCircle.prototype = {
     update: function () {
         push()
-        stroke(255,255,255, 50)
-        strokeWeight(10)
+        stroke(255,255,255, 255)
+        strokeWeight(2)
         strokeCap(SQUARE)
         noFill()
         translate(this.x, this.y);

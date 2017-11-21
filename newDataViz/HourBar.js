@@ -4,15 +4,15 @@ function HourBar(  ) {
     this.x = windowWidth/2
     this.y = windowHeight/2
     this.pos = 1.5 
-    this.radius = 220
-    this.hour = 1
-
+    this.radius = 350
+    this.hour = 0
+    this.opacity = 255
 }
 
 HourBar.prototype = {
     update: function () {
         push()
-        stroke(255,255,255, 50)
+        stroke(255,255,255, this.opacity)
         strokeWeight(10)
         strokeCap(SQUARE)
         noFill()
@@ -24,14 +24,21 @@ HourBar.prototype = {
         pop()
     }, 
 
-    nextHour: function() {
+    next: function() {
         TweenLite.to(this, 1, {pos: this.pos + .222});
         this.hour++
     }, 
 
-    prevHour: function() {
+    prev: function() {
         TweenLite.to(this, 1, {pos: this.pos - .222});
         this.hour--
+    }, 
+    select: function() {
+        TweenLite.to(this, 1, {ease: Power1.easeInOut, pos: this.pos + 2});
+        TweenLite.to(this, 1, {ease: Power1.easeInOut, opacity: 255});
+    }, 
+    unselect: function() {
+        TweenLite.to(this, 1, {ease: Power1.easeInOut, opacity: 100});
     }
 }
 
