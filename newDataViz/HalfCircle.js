@@ -7,6 +7,8 @@ function HalfCircle() {
     this.radius = 390
     this.hour = 1
     this.opacity = 50;
+    this.isMorning = true
+    this.isSelected = false
 
 }
 
@@ -25,18 +27,22 @@ HalfCircle.prototype = {
         pop()
     }, 
     next: function() {
-        TweenLite.to(this, 1, {ease: Power1.easeInOut, pos: this.pos + 1});
+        TweenLite.to(this, 1, {ease: Power1.easeOut, pos: this.pos + 1});
+        this.isMorning = !this.isMorning
     }, 
 
     prev: function() {
-        TweenLite.to(this, 1, {ease: Power1.easeInOut, pos: this.pos + 1});
+        TweenLite.to(this, 1, {ease: Power1.easeOut, pos: this.pos + 1});
+        this.isMorning = !this.isMorning
     }, 
     select: function() {
+        this.isSelected = true
         TweenLite.to(this, 1.5, {ease: Power1.easeOut, pos: this.pos + 2});
         TweenLite.to(this, 1, { opacity: 255});
     },
     unselect: function() {
-        TweenLite.to(this, 1, {ease: Power1.easeInOut, opacity: 100});
+        this.isSelected = false
+        TweenLite.to(this, 1, {ease: Power1.easeOut, opacity: 100});
     }
 }
 

@@ -34,11 +34,11 @@ HourBar.prototype = {
         this.hour--
     }, 
     select: function() {
-        TweenLite.to(this, 1, {ease: Power1.easeInOut, pos: this.pos + 2});
-        TweenLite.to(this, 1, {ease: Power1.easeInOut, opacity: 255});
+        TweenLite.to(this, 1.5, {ease: Power1.easeOut, pos: this.pos + 2});
+        TweenLite.to(this, 1, {ease: Power1.easeOut, opacity: 255});
     }, 
     unselect: function() {
-        TweenLite.to(this, 1, {ease: Power1.easeInOut, opacity: 100});
+        TweenLite.to(this, 1, {ease: Power1.easeOut, opacity: 100});
     }
 }
 

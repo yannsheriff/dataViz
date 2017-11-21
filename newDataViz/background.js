@@ -13,29 +13,33 @@ function Background( opt ) {
     this.scale = 1.2
     this.scaleNew = 0
     this.flow = null 
+    this.isGradient = true
+    this.bgColor = '#971154'
 
 
 }
 
 Background.prototype = {
     update: function () {
-        // console.log("scale : "+this.scale)
-        // console.log("scaleOld : "+this.scaleOld)
-        push()
-        translate(this.x, this.y)
-        image(this.backgrounds[this.prevBg], 0, 0, (windowWidth + 300) * this.scaleOld , (windowWidth + 300)  * this.scaleOld)
-        pop()
+        if (this.isGradient) {
+            push()
+            translate(this.x, this.y)
+            image(this.backgrounds[this.prevBg], 0, 0, (windowWidth + 300) * this.scaleOld , (windowWidth + 300)  * this.scaleOld)
+            pop()
 
-        push()
-        translate(this.x, this.y)
-        image(this.backgrounds[this.actualBg], 0, 0, (windowWidth + 300) * this.scale , (windowWidth + 300)  * this.scale)
-        pop()
+            push()
+            translate(this.x, this.y)
+            image(this.backgrounds[this.actualBg], 0, 0, (windowWidth + 300) * this.scale , (windowWidth + 300)  * this.scale)
+            pop()
 
-        push()
-        translate(this.x, this.y)
-        scale(this.scaleNew , this.scaleNew )
-        image(this.backgrounds[this.nextBg], 0, 0, (windowWidth + 300) * this.scaleNew, (windowWidth + 300) * this.scaleNew  )
-        pop()
+            push()
+            translate(this.x, this.y)
+            scale(this.scaleNew , this.scaleNew )
+            image(this.backgrounds[this.nextBg], 0, 0, (windowWidth + 300) * this.scaleNew, (windowWidth + 300) * this.scaleNew  )
+            pop()
+        } else {
+            background(this.bgColor)
+        }
     }, 
     next: function () {
         this.flow = 'next'
@@ -54,8 +58,17 @@ Background.prototype = {
             tween.eventCallback("onComplete", this.endAnim, null, this)
         }.bind(this), 100)
     }, 
-
-
+    displayHalfDay: function (isMorning) {
+        this.isGradient = false
+        if (isMorning) {
+            this.bgColor = '#971154'
+        } else {
+            this.bgColor = '#222222'
+        }
+    },
+    unDisplayHalfDay: function () {
+        this.isGradient = true
+    },
     endAnim: function () {
         this.scaleNew = 0
         this.scale = 1.2
