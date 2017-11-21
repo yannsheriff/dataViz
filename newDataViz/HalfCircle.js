@@ -37,12 +37,15 @@ HalfCircle.prototype = {
     }, 
     select: function() {
         this.isSelected = true
-        TweenLite.to(this, 1.5, {ease: Power1.easeOut, pos: this.pos + 2});
+        this.spin()
         TweenLite.to(this, 1, { opacity: 255});
     },
     unselect: function() {
         this.isSelected = false
         TweenLite.to(this, 1, {ease: Power1.easeOut, opacity: 100});
+    }, 
+    spin: function(){
+        TweenLite.to(this, 1.5, {ease: Power1.easeOut, pos: this.pos + 2});
     }
 }
 

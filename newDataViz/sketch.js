@@ -38,6 +38,7 @@ function setup() {
 	
 	hourBar = new HourBar()
 	halfCircle = new HalfCircle()
+	bigCircle = new Circle()
 	hourDisplay = new Hour(statistiques)
 	customBackground = new Background(backgrounds)	
 }
@@ -52,14 +53,14 @@ function draw() {
 	
 
 	/*
-	* mise en place ddu grand cercle :
+	* mise en place du grand cercle :
 	*/
-	push()
-	translate(windowWidth/2, windowHeight/2);
-	rotation += 0.005
-	rotate(rotation)
-	image(img, 0, 0, 450, 450);
-	pop()
+	// push()
+	// translate(windowWidth/2, windowHeight/2);
+	// rotation += 0.005
+	// rotate(rotation)
+	// image(img, 0, 0, 450, 450);
+	// pop()
 
 
 	/*
@@ -84,6 +85,7 @@ function draw() {
 	hourDisplay.update()
 	hourBar.update()
 	halfCircle.update()
+	bigCircle.update()
 
 }
 
@@ -105,6 +107,10 @@ function mousePressed() {
 				hourBar.select()
 				customBackground.unDisplayHalfDay()
 			}
+
+			// si le cercle est activé : le desactivé
+			bigCircle.unselect()
+			customBackground.unDisplayDay()
 
 			hourBar.prev()
 			hourDisplay.prev()
@@ -131,6 +137,10 @@ function mousePressed() {
 				customBackground.unDisplayHalfDay()
 			}
 
+			// si le cercle est activé : le desactivé
+			bigCircle.unselect()
+			customBackground.unDisplayDay()
+
 			hourBar.next()
 			hourDisplay.next()
 			customBackground.next()
@@ -141,6 +151,9 @@ function mousePressed() {
 				setTimeout(function() { if (hourBar.hour == 9) { hourBar.hour = 0 } }, 100) 
 			}
 		}
+
+
+
 		setTimeout(function() { click = 0 }, 2000) 
 	}
 
@@ -150,10 +163,26 @@ function mousePressed() {
 	*/
 	var d = dist(mouseX, mouseY, windowWidth/2, windowHeight/2);
 	if (d > 190 && d < 200) {
+		customBackground.unDisplayDay()
+		hourBar.unselect()
+		bigCircle.unselect()
 		if (!halfCircle.isSelected) { customBackground.displayHalfDay(halfCircle.isMorning) }
 		halfCircle.select()
-		hourBar.unselect()
 		hourDisplay.displayHalfDay(halfCircle.isMorning)
+	}
+
+
+	/*
+	* Au click sur le cercle (journée) :
+	*/
+	var d = dist(mouseX, mouseY, windowWidth/2, windowHeight/2);
+	if (d > 210 && d < 230) {
+		hourBar.unselect()
+		halfCircle.unselect()
+		bigCircle.select()
+		halfCircle.spin()
+		hourBar.spin()
+		customBackground.displayDay()
 	}
 
 
@@ -166,7 +195,9 @@ function mousePressed() {
 			customBackground.unDisplayHalfDay() 
 			hourDisplay.unDisplayHalfDay()
 		}
+		customBackground.unDisplayDay()
 		halfCircle.unselect()
+		bigCircle.unselect()
 		hourBar.select()
 	}
 	

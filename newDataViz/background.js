@@ -69,6 +69,13 @@ Background.prototype = {
     unDisplayHalfDay: function () {
         this.isGradient = true
     },
+    displayDay: function (isMorning) {
+        this.isGradient = false
+        this.bgColor = '#971154'
+    },
+    unDisplayDay: function () {
+        this.isGradient = true
+    },
     endAnim: function () {
         this.scaleNew = 0
         this.scale = 1.2

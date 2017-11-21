@@ -32,7 +32,7 @@ statistiques = [
         fontColor: "#20033a"
     },
     {
-        horaire : "23:00 - 2:00",
+        horaire : "23:00 - 02:00",
         fontColor: "#0c0645"
     }
 ]
