@@ -86,7 +86,7 @@ function draw() {
 function mousePressed() {
 	click++
 	
-	// Securite pour qu'on ne puisse pas trop cliqué sur les boutons
+	// Securite pour qu'on ne puisse pas trop cliquée sur les boutons
 	if ( click < 2)  {
 
 		/*
