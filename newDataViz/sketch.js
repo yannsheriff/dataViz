@@ -2,16 +2,6 @@ var quartCircles = Array()
 var img
 var rotation = 0
 var click = 0
-var data = { 
-	percentages : 
-	{
-		pourcentage1: 51,
-		pourcentage2: 48,
-		pourcentage3: 35,
-		pourcentage4: 27,
-		pourcentage5: 16,
-	}
-}
 
 function preload() { 
 	img = loadImage("assets/cercle.png"); 
@@ -26,6 +16,8 @@ function preload() {
 	bg9 = loadImage("assets/bg_9.png"); 
 	button = loadImage("assets/buttons.png"); 
 	BebasNeueBook = loadFont("assets/BebasNeueBook.otf")
+	FiraSansMedium = loadFont("assets/FiraSansMedium.otf")
+	data = loadJSON("assets/data.json");
 }
 
 
@@ -52,8 +44,7 @@ function setup() {
 	hourDisplay = new Hour(statistiques)
 	customBackground = new Background(backgrounds)	
 	dataVisualizer = new DataVisualizer(data)
-
-	dataVisualizer.changeData(data)
+	dataVisualizer.changeData(data[0])
 }
 
 function draw() {
@@ -124,6 +115,8 @@ function mousePressed() {
 				halfCircle.prev()
 				setTimeout(function() { if (hourBar.hour == -1) { hourBar.hour = 8 } }, 100) 
 			}
+
+			dataVisualizer.changeData(data[hourBar.hour])
 		}
 
 
@@ -153,6 +146,8 @@ function mousePressed() {
 				halfCircle.next()
 				setTimeout(function() { if (hourBar.hour == 9) { hourBar.hour = 0 } }, 100) 
 			}
+
+			dataVisualizer.changeData(data[hourBar.hour])
 		}
 
 

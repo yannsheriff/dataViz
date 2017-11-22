@@ -1,0 +1,252 @@
+[
+    {
+        "num": 1,
+        "dataHeure": "07:50",
+        "dataHMinute": null,
+        "premier": "6h30",
+        "dernier": "8h30",
+        "phraseFL": "se lève à",
+        "phrase": "En moyenne, les élèves de Gobelins se lèvent à 7h50.",
+        "percentages": null
+    },
+    {
+        "num": 2,
+        "dataHeure": null,
+        "dataHMinute": "00:36",
+        "premier": null,
+        "dernier": null,
+        "phraseFL": null,
+        "phrase": "Ils mettent, en moyenne, 36 min pour venir et empruntent 2 lignes de transports différentes. ",
+        "percentages": {
+            "pourcentage1": "59.50",
+            "phrase1": "des élèves écoutent de la musique dans les transports",
+            "pourcentage2": "45.90",
+            "phrase2": "lisent",
+            "pourcentage3": "27",
+            "phrase3": "ne font rien",
+            "pourcentage4": "21.60",
+            "phrase4": "jouent à un jeu sur leur smarthpone",
+            "pourcentage5": "16.20",
+            "phrase5": "dorment"
+        }
+    },
+    {
+        "num": 3,
+        "dataHeure": "10:51",
+        "dataHMinute": null,
+        "premier": "8h30",
+        "dernier": "13h00",
+        "phraseFL": "a faim à",
+        "phrase": "En moyenne, les élèves commencent à avoir faim à partir de 10h51.",
+        "percentages": null
+    },
+    {
+        "num": 4,
+        "dataHeure": null,
+        "dataHMinute": null,
+        "premier": null,
+        "dernier": null,
+        "phraseFL": null,
+        "phrase": "Lors de la pause déjeuner, ils ne mangent pas tous au même endroit.",
+        "percentages": {
+            "pourcentage1": "70.30",
+            "phrase1": "des élèves mangent à la cantine",
+            "pourcentage2": "13.50",
+            "phrase2": "apportent leur propre nourriture",
+            "pourcentage3": "13.50",
+            "phrase3": "vont au Franprix",
+            "pourcentage4": "2.70",
+            "phrase4": "préfèrent le McDo",
+            "pourcentage5": null,
+            "phrase5": null
+        }
+    },
+    {
+        "num": 5,
+        "dataHeure": null,
+        "dataHMinute": "00:35",
+        "premier": null,
+        "dernier": null,
+        "phraseFL": null,
+        "phrase": "En moyenne, les élèves de Gobelins prennent 35 min de pause dans la journée (sans compter le déjeuner).",
+        "percentages": {
+            "pourcentage1": "48.60",
+            "phrase1": "des élèves prennent un café pendant la pause",
+            "pourcentage2": "43.20",
+            "phrase2": "ne font rien",
+            "pourcentage3": "18.90",
+            "phrase3": "vont fumer une cigarette",
+            "pourcentage4": "16.20",
+            "phrase4": "des élèves dorment pendant la pause",
+            "pourcentage5": "13.50",
+            "phrase5": "jouent aux cartes"
+        }
+    },
+    {
+        "num": 6,
+        "dataHeure": "17:19",
+        "dataHMinute": null,
+        "premier": "17h00",
+        "dernier": "19h00",
+        "phraseFL": "part à",
+        "phrase": "En moyenne, ils partent de l'école à 17h19.",
+        "percentages": null
+    },
+    {
+        "num": 7,
+        "dataHeure": null,
+        "dataHMinute": null,
+        "premier": null,
+        "dernier": null,
+        "phraseFL": null,
+        "phrase": "Après les cours, les élèves s'occupent différement.",
+        "percentages": {
+            "pourcentage1": "51.40",
+            "phrase1": "travaillent",
+            "pourcentage2": "48.60",
+            "phrase2": "des élèves vont boire une bière",
+            "pourcentage3": "35.10",
+            "phrase3": "prennent un goûter",
+            "pourcentage4": "27",
+            "phrase4": "vont dormir",
+            "pourcentage5": "16.20",
+            "phrase5": "vont faire du sport"
+        }
+    },
+    {
+        "num": 8,
+        "dataHeure": null,
+        "dataHMinute": null,
+        "premier": null,
+        "dernier": null,
+        "phraseFL": null,
+        "phrase": "Ils travaillent (un peu) le soir.",
+        "percentages": {
+            "pourcentage1": "45.90",
+            "phrase1": "des élèves travaillent entre 1h et 2h",
+            "pourcentage2": "37.80",
+            "phrase2": "travaillent moins d'1h",
+            "pourcentage3": "16.20",
+            "phrase3": "travaillent plus de 2h",
+            "pourcentage4": null,
+            "phrase4": null,
+            "pourcentage5": null,
+            "phrase5": null
+        }
+    },
+    {
+        "num": 9,
+        "dataHeure": "00:34",
+        "dataHMinute": null,
+        "premier": "22h30",
+        "dernier": "02h40",
+        "phraseFL": "se couche à",
+        "phrase": "En moyenne, les élèves de Gobelins vont se coucher à 00h34.",
+        "percentages": null
+    },
+    {
+        "num": 100,
+        "dataHeure": "MATINÉE",
+        "dataHMinute": "00:46",
+        "premier": null,
+        "dernier": null,
+        "phraseFL": null,
+        "phrase": "En moyenne, les élèves estiment être déconcentrés 46 min sur une matinée.",
+        "percentages": {
+            "pourcentage1": "59.50",
+            "phrase1": "des élèves regardent leur téléphone moins de 10 fois dans la matinée",
+            "pourcentage2": "32.40",
+            "phrase2": "le regarde entre 10 et 30 fois",
+            "pourcentage3": "8.10",
+            "phrase3": "le regarde plus de 30 fois",
+            "pourcentage4": "0",
+            "phrase4": "des élèves ne regardent jamais leur téléphone",
+            "pourcentage5": null,
+            "phrase5": null
+        }
+    },
+    {
+        "num": 200,
+        "dataHeure": "APRÈS-MIDI / SOIR",
+        "dataHMinute": null,
+        "premier": null,
+        "dernier": null,
+        "phraseFL": null,
+        "percentages": {
+            "phrase": "Sur une après-midi, les élèves font plus ou moins appel à l'intervenant.",
+            "pourcentage1": "64.90",
+            "phrase1": "appellent l'intervenant entre 1 et 3 fois",
+            "pourcentage2": "18.90",
+            "phrase2": "des élèves ne l'appellent jamais",
+            "pourcentage3": "10.80",
+            "phrase3": "l'appellent entre 3 et 5 fois",
+            "pourcentage4": "5.40",
+            "phrase4": "l'appellent plus de 5 fois",
+            "pourcentage5": null,
+            "phrase5": null
+        }
+    },
+    {
+        "num": 300,
+        "dataHeure": "JOURNÉE",
+        "dataHMinute": null,
+        "premier": null,
+        "dernier": null,
+        "phraseFL": null,
+        "phrase": "En une journée à Gobelins, les élèves apprennent des choses.",
+        "percentages": {
+            "pourcentage1": "94.60",
+            "phrase1": "des élèves estiment avoir appris quelque chose, à la fin de la journée",
+            "pourcentage2": "5.40",
+            "phrase2": "estiment n'avoir rien appris",
+            "pourcentage3": null,
+            "phrase3": null,
+            "pourcentage4": null,
+            "phrase4": null,
+            "pourcentage5": null,
+            "phrase5": null
+        }
+    },
+    {
+        "num": 300.1,
+        "dataHeure": null,
+        "dataHMinute": null,
+        "premier": null,
+        "dernier": null,
+        "phraseFL": null,
+        "phrase": "Les élèves passent de bonnes journées à Gobelins (ou pas).",
+        "percentages": {
+            "pourcentage1": "89.20",
+            "phrase1": "des élèves estiment passer une bonne journée lorsqu'ils sont à Gobelins",
+            "pourcentage2": "10.80",
+            "phrase2": "des élèves estiment ne pas passer une bonne journée :'(",
+            "pourcentage3": null,
+            "phrase3": null,
+            "pourcentage4": null,
+            "phrase4": null,
+            "pourcentage5": null,
+            "phrase5": null
+        }
+    }, 
+    {
+        "num": 2.1,
+        "dataHeure": null,
+        "dataHMinute": null,
+        "premier": null,
+        "dernier": null,
+        "phraseFL": null,
+        "phrase": "Ils sont plus ou moins ponctuels.\n(À 9h, 73% des élèves ne sont toujours pas là).",
+        "percentages": {
+            "pourcentage1": "56.80",
+            "phrase1": "arrivent à l'école entre 9h et 9h15",
+            "pourcentage2": "18.90",
+            "phrase2": "arrivent à 9h pile",
+            "pourcentage3": "16.20",
+            "phrase3": "entre 9h15 et 9h30",
+            "pourcentage4": "8.10",
+            "phrase4": "sont là avant 9h",
+            "pourcentage5": null,
+            "phrase5": null
+        }
+    }
+]
