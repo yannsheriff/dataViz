@@ -2,6 +2,16 @@ var quartCircles = Array()
 var img
 var rotation = 0
 var click = 0
+var data = { 
+	percentages : 
+	{
+		pourcentage1: 51,
+		pourcentage2: 48,
+		pourcentage3: 35,
+		pourcentage4: 27,
+		pourcentage5: 16,
+	}
+}
 
 function preload() { 
 	img = loadImage("assets/cercle.png"); 
@@ -41,6 +51,9 @@ function setup() {
 	bigCircle = new Circle()
 	hourDisplay = new Hour(statistiques)
 	customBackground = new Background(backgrounds)	
+	dataVisualizer = new DataVisualizer(data)
+
+	dataVisualizer.changeData(data)
 }
 
 function draw() {
@@ -51,17 +64,6 @@ function draw() {
 	*/
 	customBackground.update()
 	
-
-	/*
-	* mise en place du grand cercle :
-	*/
-	// push()
-	// translate(windowWidth/2, windowHeight/2);
-	// rotation += 0.005
-	// rotate(rotation)
-	// image(img, 0, 0, 450, 450);
-	// pop()
-
 
 	/*
 	* mise en place des cercle qui tourne (quart de cercle ) :
@@ -86,6 +88,7 @@ function draw() {
 	hourBar.update()
 	halfCircle.update()
 	bigCircle.update()
+	dataVisualizer.update()
 
 }
 
