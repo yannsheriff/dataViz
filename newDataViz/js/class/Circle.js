@@ -5,6 +5,7 @@ function Circle() {
     this.opacity = 0
     this.radiusImg = 450
     this.radius = 435
+    this.isSelected = false
 
 }
 
@@ -22,10 +23,12 @@ Circle.prototype = {
         pop()
     }, 
     select: function() {
+        this.isSelected = true
         TweenLite.to(this, 1.5, {ease: Power1.easeOut, pos: this.pos + 2});
         TweenLite.to(this, 1, {ease: Power1.easeOut, opacity: 200});
     }, 
     unselect: function() {
+        this.isSelected = false
         TweenLite.to(this, 1, {ease: Power1.easeOut, opacity: 0});
     }
 }

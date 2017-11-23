@@ -41,10 +41,10 @@ function setup() {
 	hourBar = new HourBar()
 	halfCircle = new HalfCircle()
 	bigCircle = new Circle()
-	hourDisplay = new Hour(statistiques)
+	hourDisplay = new Hour()
 	customBackground = new Background(backgrounds)	
 	dataVisualizer = new DataVisualizer(data)
-	dataVisualizer.changeData(data[0])
+	dataVisualizer.changeData(data[0][0])
 }
 
 function draw() {
@@ -69,7 +69,13 @@ function draw() {
 	* mise en place des boutons :
 	*/
 	stroke(255,255,255)
-	image(button, windowWidth/2 + 300, windowHeight/2 )
+	image(button, windowWidth/2 + 300, windowHeight/2, 20, 80 )
+
+
+	/*
+	* boutons slide suivante :
+	*/
+	checkButton()
 
 
 	/*
@@ -99,13 +105,12 @@ function mousePressed() {
 			if (halfCircle.isSelected) {
 				halfCircle.unselect()
 				hourBar.select()
-				customBackground.unDisplayHalfDay()
+				customBackground.backToGradient()
 			}
 
 			// si le cercle est activé : le desactivé
 			bigCircle.unselect()
-			customBackground.unDisplayDay()
-
+			customBackground.backToGradient()
 			hourBar.prev()
 			hourDisplay.prev()
 			customBackground.prev()
@@ -113,10 +118,11 @@ function mousePressed() {
 			// si les heures passent dans l'apres midi ou la matiné
 			if (hourBar.hour == 3 || hourBar.hour == -1 ) {
 				halfCircle.prev()
-				setTimeout(function() { if (hourBar.hour == -1) { hourBar.hour = 8 } }, 100) 
+				setTimeout(function() { if (hourBar.hour == -1 ) { hourBar.hour = 8 } }, 100) 
 			}
 
-			dataVisualizer.changeData(data[hourBar.hour])
+			setTimeout(function() { dataVisualizer.changeData(data[0][hourBar.hour], customBackground.flow) }, 105) 
+			dataVisualizer.isSecondStat = false
 		}
 
 
@@ -129,14 +135,13 @@ function mousePressed() {
 			// si le demi cercle est activé : le desactivé
 			if (halfCircle.isSelected) {
 				halfCircle.unselect()
-				hourBar.select()
-				customBackground.unDisplayHalfDay()
+				customBackground.backToGradient()
 			}
 
 			// si le cercle est activé : le desactivé
 			bigCircle.unselect()
-			customBackground.unDisplayDay()
-
+			customBackground.backToGradient()
+			hourBar.select()
 			hourBar.next()
 			hourDisplay.next()
 			customBackground.next()
@@ -147,12 +152,10 @@ function mousePressed() {
 				setTimeout(function() { if (hourBar.hour == 9) { hourBar.hour = 0 } }, 100) 
 			}
 
-			dataVisualizer.changeData(data[hourBar.hour])
+			setTimeout(function() { dataVisualizer.changeData(data[0][hourBar.hour], customBackground.flow) }, 105) 
 		}
-
-
-
 		setTimeout(function() { click = 0 }, 2000) 
+		dataVisualizer.isSecondStat = false
 	}
 
 
@@ -161,12 +164,15 @@ function mousePressed() {
 	*/
 	var d = dist(mouseX, mouseY, windowWidth/2, windowHeight/2);
 	if (d > 190 && d < 200) {
-		customBackground.unDisplayDay()
 		hourBar.unselect()
 		bigCircle.unselect()
-		if (!halfCircle.isSelected) { customBackground.displayHalfDay(halfCircle.isMorning) }
+		if (!halfCircle.isSelected) { 
+			customBackground.displayHalfDay(halfCircle.isMorning) 
+			halfCircle.isMorning ? dataVisualizer.changeData(data[1][0]) : dataVisualizer.changeData(data[1][1])
+		}
 		halfCircle.select()
-		hourDisplay.displayHalfDay(halfCircle.isMorning)
+		halfCircle.isMorning ? hourDisplay.displayScreen(data[1][0].dataHeure, "#fc6c4f") : hourDisplay.displayScreen(data[1][1].dataHeure, "#3f80f5") 
+		dataVisualizer.isSecondStat = false
 	}
 
 
@@ -181,6 +187,8 @@ function mousePressed() {
 		halfCircle.spin()
 		hourBar.spin()
 		customBackground.displayDay()
+		dataVisualizer.changeData(data[1][2])
+		hourDisplay.displayScreen(data[1][2].dataHeure, "#330959")
 	}
 
 
@@ -189,15 +197,73 @@ function mousePressed() {
 	*/
 	var d = dist(mouseX, mouseY, windowWidth/2, windowHeight/2);
 	if (d > 170 && d < 180) {
-		if (halfCircle.isSelected){ 
-			customBackground.unDisplayHalfDay() 
-			hourDisplay.unDisplayHalfDay()
-		}
-		customBackground.unDisplayDay()
+
+		hourDisplay.displayActualHour()
+		customBackground.backToGradient()
+		dataVisualizer.changeData(data[0][hourBar.hour])
 		halfCircle.unselect()
 		bigCircle.unselect()
 		hourBar.select()
+		dataVisualizer.isSecondStat = false
 	}
+
+	/*
+	* Au click sur stats suivante  :
+	*/
+	var d = dist(mouseX, mouseY, windowWidth/2 + 425, 50);
+	if (d < 100) {
+		if (bigCircle.isSelected) {
+			dataVisualizer.changeData(data[1][3])
+			dataVisualizer.isSecondStat = true
+		} else {
+			dataVisualizer.changeData(data[1][4])
+			dataVisualizer.isSecondStat = true
+		}
+	}
+
+	/*
+	* Au click sur stats precedente  :
+	*/
+	var d = dist(mouseX, mouseY, windowWidth/2 - 425, 50);
+	if (d < 100) {
+		if (bigCircle.isSelected) {
+			dataVisualizer.changeData(data[1][2])
+			dataVisualizer.isSecondStat = false
+		} else {
+			dataVisualizer.changeData(data[0][hourBar.hour])
+			dataVisualizer.isSecondStat = false
+		}
+	}
+  }
+
+  function checkButton() {
+	var fillColor = hourBar.hour == 1 ? "#9a0954" : "#330959"
 	
-	
+	if (hourBar.hour == 1 && !dataVisualizer.isSecondStat || bigCircle.isSelected && !dataVisualizer.isSecondStat ) {
+		push()
+        fill(255,255,255, 255)
+        noStroke()
+        translate(width / 2 + 350, 50);
+        cadre = rect(0, 0, 250, 40, 15);
+        fill(fillColor);
+        textFont(BebasNeueBook);
+        textSize(22);
+        textAlign(CENTER, CENTER);
+        text("Statistique suivante", 0, 0, 250, 40);
+        pop()
+	} 
+
+	if (dataVisualizer.isSecondStat) {
+		push()
+        fill(255,255,255, 255)
+        noStroke()
+        translate(width / 2 - 550, 50);
+        cadre = rect(0, 0, 250, 40, 15);
+        fill(fillColor);
+        textFont(BebasNeueBook);
+        textSize(22);
+        textAlign(CENTER, CENTER);
+        text("Statistique précedente", 0, 0, 250, 40);
+        pop()
+	}
   }

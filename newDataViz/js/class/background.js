@@ -43,7 +43,7 @@ Background.prototype = {
     }, 
     next: function () {
         this.flow = 'next'
-        TweenLite.to(this, 1, {scale: 5})
+        TweenLite.to(this, 1, {scale: 2})
         setTimeout(function () {
             var tween = TweenLite.to(customBackground, 1.5, {scaleNew: 1.1})
             tween.eventCallback("onComplete", this.endAnim, null, this)
@@ -61,20 +61,17 @@ Background.prototype = {
     displayHalfDay: function (isMorning) {
         this.isGradient = false
         if (isMorning) {
-            this.bgColor = '#971154'
+            this.bgColor = '#fc6c4f'
         } else {
-            this.bgColor = '#222222'
+            this.bgColor = '#3f80f5'
         }
     },
-    unDisplayHalfDay: function () {
+    backToGradient: function () {
         this.isGradient = true
     },
     displayDay: function (isMorning) {
         this.isGradient = false
-        this.bgColor = '#971154'
-    },
-    unDisplayDay: function () {
-        this.isGradient = true
+        this.bgColor = '#330959'
     },
     endAnim: function () {
         this.scaleNew = 0

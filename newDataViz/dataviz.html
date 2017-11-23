@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>newDataViz</title>
+
+	<script src="../libraries/p5.js"></script>
+	<script src="../libraries/p5.dom.js"></script>
+	<script src="../libraries/p5.sound.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.0.3/sweetalert2.all.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/TweenMax.min.js"></script>
+	<script src="js/class/Circle.js"></script>
+	<script src="js/class/Background.js"></script>
+	<script src="js/class/QuartCircle.js"></script>
+	<script src="js/class/HalfCircle.js"></script>
+	<script src="js/class/HourBar.js"></script>
+	<script src="js/class/Hour.js"></script>
+	<script src="js/class/DataVisualizer.js"></script>
+	<script src="js/sketch.js"></script>
+
+	<style>
+		body {
+	     	margin:0;
+			padding:0;
+			overflow: hidden;
+		}
+		canvas {
+			margin:auto;
+		}
+
+	</style>
+</head>
+<body>
+		<div id="p5_loading" class="loadingclass" style="background: radial-gradient(#16002a 0%,  #330959 90%); height: 100vh; display:flex; justify-content:center; align-items:center"> <p style="color: white">Loading..</p></div>
+		
+	<img src="assets/info.png" id="info" alt="" style="position:absolute; bottom: 20px; right:20px; width: 30px">
+	<script>
+	swal({
+		imageUrl: 'assets/popup.png',
+		imageWidth: 984,
+		width: 984,
+		confirmButtonColor: '#b4b5cb'
+		})
+	var btn = document.getElementById("info")
+	btn.addEventListener("click",function(){
+		swal({
+		imageUrl: 'assets/popup.png',
+		imageWidth: 984,
+		width: 984,
+		confirmButtonColor: '#b4b5cb'
+		})
+	});;
+	</script>
+	
+</body>
+</html>
