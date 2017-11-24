@@ -43,7 +43,7 @@ Background.prototype = {
     }, 
     next: function () {
         this.flow = 'next'
-        TweenLite.to(this, 1, {scale: 2})
+        TweenLite.to(this, 1, {scale: 4})
         setTimeout(function () {
             var tween = TweenLite.to(customBackground, 1.5, {scaleNew: 1.1})
             tween.eventCallback("onComplete", this.endAnim, null, this)
@@ -90,16 +90,12 @@ Background.prototype = {
             this.prevBg--
         }
 
-
         if (this.prevBg == 9) { this.prevBg = 0 }
         if (this.prevBg == -1) { this.prevBg = 8 }
         if (this.nextBg == 9) { this.nextBg = 0 }
         if (this.nextBg == -1) { this.nextBg = 8 }
         if (this.actualBg == 9) { this.actualBg = 0 }
         if (this.actualBg == -1) { this.actualBg = 8 }
-
-        
     }
-
 }
 

@@ -1,13 +1,13 @@
 function HalfCircle() { 
     
 
-    this.x = windowWidth/2
-    this.y = windowHeight/2
-    this.pos = 1.5 
-    this.radius = 390
-    this.hour = 1
-    this.opacity = 50;
-    this.isMorning = true
+    this.x          = windowWidth/2
+    this.y          = windowHeight/2
+    this.pos        = 1.5 
+    this.radius     = 390
+    this.hour       = 1
+    this.opacity    = 50;
+    this.isMorning  = true
     this.isSelected = false
 
 }

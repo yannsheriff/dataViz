@@ -1,18 +1,18 @@
 function DataVisualizer(data) { 
     
-    this.data = data
-    this.upper = 0;
-    this.isGraphPercentage = false
-    this.isGraphHour = true
-    this.isGraphHourPercent = false
-    this.isSecondStat = false
-    this.radiusImg = 450
-    this.radius = 435
-    this.x = width / 2
-    this.y = height / 2
-    this.percentages = []
-    this.count = 0
-    this.scale = 1
+    this.data                   = data
+    this.upper                  = 0;
+    this.isGraphPercentage      = false
+    this.isGraphHour            = true
+    this.isGraphHourPercent     = false
+    this.isSecondStat           = false
+    this.radiusImg              = 450
+    this.radius                 = 435
+    this.x                      = width / 2
+    this.y                      = height / 2
+    this.percentages            = []
+    this.count                  = 0
+    this.scale                  = 1
     this.posCircle = [
         {
             x: -50,
@@ -63,7 +63,6 @@ function DataVisualizer(data) {
             align: true
         }, 
     ]
-
     this.endLine = [
         {
             x: -80,
@@ -107,16 +106,24 @@ function DataVisualizer(data) {
             }
         } 
     ]
-
-
 }
 
 DataVisualizer.prototype = {
     update: function () {
         this.displayLegend(this.data.phrase)
-        if (this.isGraphPercentage) { this.displayPercentages() }
-        if (this.isGraphHour) { this.displayGraphHour() }
-        if (this.isGraphHourPercent) { this.displayGraphHourPercent() }
+        if (this.isGraphPercentage)     { this.displayPercentages()         }
+        if (this.isGraphHour)           { this.displayGraphHour()           }
+        if (this.isGraphHourPercent)    { this.displayGraphHourPercent()    }
+    }, 
+    displayGraphHour: function(){
+        this.displayHour(this.data.dataHeure)
+        this.displayLeftText(this.data.phraseFL, this.data.premier)
+        this.displayRightText(this.data.phraseFL, this.data.dernier)
+    },
+    displayGraphHourPercent: function() {
+        this.displayHour(this.data.dataHMinute)
+        this.displayPercentTexts()
+        this.mapTextsToDatas()
     }, 
     displayPercentages: function() {
         push()
@@ -128,7 +135,6 @@ DataVisualizer.prototype = {
         }.bind(this));
         pop()
         this.displayPercentTexts()
-        
     }, 
     displayOnePercentage: function(circle){
         if (this.count > 200) {
@@ -145,15 +151,10 @@ DataVisualizer.prototype = {
         fill(255,255,255, opacity)
         circle.posSave.x = circle.pos.x + circle.randX
         circle.posSave.y = circle.pos.y + circle.randY * 2
-
-        arc(circle.pos.x + circle.randX, circle.pos.y + circle.randY * 2, circle.pourcentage * 2, circle.pourcentage * 2, 0, 2 * PI );
+        var sizeCircle = map(circle.pourcentage * 2, 0, 100, 25, 90)
+        arc(circle.pos.x + circle.randX, circle.pos.y + circle.randY * 2, sizeCircle, sizeCircle, 0, 2 * PI );
         pop()
     }, 
-    displayGraphHour: function(){
-        this.displayHour(this.data.dataHeure)
-        this.displayLeftText(this.data.phraseFL, this.data.premier)
-        this.displayRightText(this.data.phraseFL, this.data.dernier)
-    },
     displayHour: function(theHour){
         push()
         textFont(BebasNeueBook);
@@ -199,11 +200,6 @@ DataVisualizer.prototype = {
         text(theText ,width / 2 - 400, height / 2 + 280, 800);
         pop()
     },
-    displayGraphHourPercent: function() {
-        this.displayHour(this.data.dataHMinute)
-        this.displayPercentTexts()
-        this.mapTextsToDatas()
-    }, 
     displayPercentTexts: function(){
         push()
         translate(this.x, this.y);
@@ -256,8 +252,9 @@ DataVisualizer.prototype = {
                 x: 0,
                 y: 0
             }
-            halfRadCircle.x = data.endLine.circle.x ? data.pourcentage/2+3 : - data.pourcentage/2-3
-            halfRadCircle.y = data.endLine.circle.y ? data.pourcentage/2+3 : - data.pourcentage/2-3
+            var sizeCircle = map(data.pourcentage * 2, 0, 100, 25, 90)
+            halfRadCircle.x = data.endLine.circle.x ? sizeCircle/2-sizeCircle*0.15 : - sizeCircle/2+sizeCircle*0.15
+            halfRadCircle.y = data.endLine.circle.y ? sizeCircle/2-sizeCircle*0.15 : - sizeCircle/2+sizeCircle*0.15
 
             push()
             stroke(255,255,255, 100)

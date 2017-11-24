@@ -16,7 +16,6 @@ function draw(){
     noFill()
     translate(width/2, height/2);
 
-
     if (hover) {
         cercle.pos += 0.01
     }
