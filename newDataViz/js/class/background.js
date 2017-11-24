@@ -1,20 +1,20 @@
 function Background( opt ) { 
     
 
-    this.x = windowWidth/2
-    this.y = windowHeight/2
-    this.width = windowWidth + 300
-    this.height = windowWidth + 300
-    this.backgrounds = opt
-    this.prevBg = 8
-    this.actualBg = 0
-    this.nextBg = 1
-    this.scaleOld = 5
-    this.scale = 1.2
-    this.scaleNew = 0
-    this.flow = null 
-    this.isGradient = true
-    this.bgColor = '#971154'
+    this.x              = windowWidth/2
+    this.y              = windowHeight/2
+    this.width          = windowWidth + 300
+    this.height         = windowWidth + 300
+    this.backgrounds    = opt
+    this.prevBg         = 8
+    this.actualBg       = 0
+    this.nextBg         = 1
+    this.scaleOld       = 5
+    this.scale          = 1.2
+    this.scaleNew       = 0
+    this.flow           = null 
+    this.isGradient     = true
+    this.bgColor        = '#971154'
 
 
 }
